@@ -4,26 +4,24 @@ import android.content.Context
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import com.example.mvpproject.R
 import com.example.mvpproject.databinding.FragmentLoginBinding
-import com.example.mvpproject.domain.router.MainRouter
 import com.example.mvpproject.ui.MainActivity
 import com.google.android.material.snackbar.Snackbar
+import moxy.MvpAppCompatFragment
+import moxy.ktx.moxyPresenter
 import javax.inject.Inject
 
-class LoginFragment : Fragment(R.layout.fragment_login), LoginContract.View {
+class LoginFragment : MvpAppCompatFragment(R.layout.fragment_login), LoginContract.View {
     @Inject
-    lateinit var presenter: LoginContract.Presenter
-    @Inject
-    lateinit var router:MainRouter
+    lateinit var presenterMoxy: LoginContract.Presenter
+    private val presenter by moxyPresenter { presenterMoxy }
     private lateinit var viewBinding: FragmentLoginBinding
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         viewBinding = FragmentLoginBinding.bind(view)
         initViews()
-        presenter.onAttach(this)
     }
 
     private fun initViews() {
@@ -48,22 +46,22 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginContract.View {
         (context as? MainActivity)?.mainSubcomponent?.injectLoginFragment(this)
     }
 
-    override fun setState(state: LoginContract.ViewState) {
+    override fun setState(state: LoginContract.ViewBehavior) {
         hideViews()
         when (state) {
-            LoginContract.ViewState.IDLE -> {
+            LoginContract.ViewBehavior.IDLE -> {
                 viewBinding.contentLayout.visibility = View.VISIBLE
             }
-            LoginContract.ViewState.SUCCESS -> {
+            LoginContract.ViewBehavior.SUCCESS -> {
                 viewBinding.contentLayout.visibility = View.VISIBLE
                 Toast.makeText(context, getString(R.string.success), Toast.LENGTH_SHORT).show()
             }
-            LoginContract.ViewState.ERROR -> {
+            LoginContract.ViewBehavior.ERROR -> {
                 viewBinding.contentLayout.visibility = View.VISIBLE
                 Snackbar.make(viewBinding.root, getString(R.string.error), Snackbar.LENGTH_SHORT)
                     .show()
             }
-            LoginContract.ViewState.LOADING -> {
+            LoginContract.ViewBehavior.LOADING -> {
                 viewBinding.contentLayout.visibility = View.INVISIBLE
                 viewBinding.progress.visibility = View.VISIBLE
             }
@@ -79,23 +77,11 @@ class LoginFragment : Fragment(R.layout.fragment_login), LoginContract.View {
     override fun setAuthError(error: LoginContract.Error) {
         when (error) {
             LoginContract.Error.LOGIN -> viewBinding.loginEdit.setError(getErrorMsgByCode(error))
-            LoginContract.Error.PASSWORD -> viewBinding.passwordEdit.setError(getErrorMsgByCode(error)
+            LoginContract.Error.PASSWORD -> viewBinding.passwordEdit.setError(
+                getErrorMsgByCode(error)
             )
         }
 
-    }
-
-    override fun openRegistration() {
-        router.openRegistrationFragment()
-    }
-
-    override fun openMainFragment() {
-        router.openMainFragment()
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        presenter.onDetach()
     }
 
     private fun getErrorMsgByCode(error: LoginContract.Error): String {

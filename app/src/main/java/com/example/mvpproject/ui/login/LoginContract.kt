@@ -1,26 +1,26 @@
 package com.example.mvpproject.ui.login
 
-import com.example.mvpproject.domain.User
+import moxy.MvpPresenter
+import moxy.MvpView
+import moxy.viewstate.strategy.alias.Skip
 
 abstract class LoginContract {
-    enum class ViewState{
+    enum class ViewBehavior{
         IDLE,LOADING,SUCCESS,ERROR
     }
     enum class Error{
         LOGIN,PASSWORD
     }
-    interface View {
-        fun setState(state: ViewState)
+    interface View :MvpView{
+        @Skip
+        fun setState(state: ViewBehavior)
+        @Skip
         fun setAuthError(error:Error)
-        fun openRegistration()
-        fun openMainFragment()
     }
 
-    interface Presenter {
-        fun onAttach(view: View)
-        fun onTryLogin(login:String,password:String)
-        fun onRegistration()
-        fun onForgotPassword()
-        fun onDetach()
+    abstract class Presenter: MvpPresenter<View>() {
+        abstract fun onTryLogin(login:String,password:String)
+        abstract fun onRegistration()
+        abstract fun onForgotPassword()
     }
 }

@@ -5,13 +5,19 @@ import com.example.mvpproject.ui.login.LoginContract
 import com.example.mvpproject.ui.login.LoginPresenter
 import com.example.mvpproject.ui.registration.RegistrationContract
 import com.example.mvpproject.ui.registration.RegistrationPresenter
+import com.github.terrakok.cicerone.Router
 import dagger.Module
 import dagger.Provides
 
 @Module
 class PresenterModule {
     @Provides
-    fun provideLoginPresenter(repository: LoginRepository): LoginContract.Presenter = LoginPresenter(repository)
+    fun provideLoginPresenter(
+        repository: LoginRepository,
+        router: Router
+    ): LoginContract.Presenter = LoginPresenter(repository, router)
+
     @Provides
-    fun provideRegistrationPresenter(repository: LoginRepository):RegistrationContract.Presenter = RegistrationPresenter(repository)
+    fun provideRegistrationPresenter(repository: LoginRepository): RegistrationContract.Presenter =
+        RegistrationPresenter(repository)
 }

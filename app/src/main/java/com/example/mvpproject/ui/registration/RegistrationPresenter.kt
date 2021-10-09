@@ -5,26 +5,20 @@ import com.example.mvpproject.domain.User
 import kotlinx.coroutines.*
 
 class RegistrationPresenter(private val repository: LoginRepository) :
-    RegistrationContract.Presenter {
-    private var view: RegistrationContract.View? = null
+    RegistrationContract.Presenter() {
     private val handler = CoroutineExceptionHandler { _, _ ->
-        view?.setError()
+        viewState.setError()
     }
 
-    override fun onAttach(view: RegistrationContract.View) {
-        this.view = view
-    }
 
     override fun onRegistration(user: User) {
         MainScope().launch(handler) {
             val result = withContext(Dispatchers.IO) {
                 repository.addUser(user)
             }
-            view?.completeRegistration(result)
+            viewState.completeRegistration(result)
         }
     }
 
-    override fun onDetach() {
-        view = null
-    }
+
 }

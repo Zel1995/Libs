@@ -14,4 +14,5 @@
     <string name="name">Введите имя</string>
     <string name="reg">Зарегистрировать</string>
     <string name="login_is_exist">такой логин уже занят</string>
+    <string name="create_new_acc">Новый аккаунт зарегестрирован</string>
 </resources>

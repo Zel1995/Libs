@@ -7,8 +7,9 @@ import com.example.mvpproject.ui.MainActivity
 import com.example.mvpproject.ui.login.LoginFragment
 import com.example.mvpproject.ui.registration.RegistrationFragment
 import dagger.Subcomponent
+import javax.inject.Singleton
 
-@Subcomponent(modules = [PresenterModule::class,RouterModule::class,MainActivityModule::class])
+@Subcomponent(modules = [PresenterModule::class,MainActivityModule::class])
 interface MainSubcomponent {
     @Subcomponent.Factory
     interface Factory{
@@ -16,5 +17,5 @@ interface MainSubcomponent {
     }
     fun injectMainActivity(activity:MainActivity)
     fun injectLoginFragment(loginFragment: LoginFragment)
-    abstract fun inject(registrationFragment: RegistrationFragment)
+    fun inject(registrationFragment: RegistrationFragment)
 }

@@ -1,12 +1,22 @@
 package com.example.mvpproject.di.modules
 
-import androidx.fragment.app.FragmentManager
-import com.example.mvpproject.domain.router.MainRouter
+import com.github.terrakok.cicerone.Cicerone
+import com.github.terrakok.cicerone.NavigatorHolder
+import com.github.terrakok.cicerone.Router
 import dagger.Module
-import javax.inject.Inject
+import dagger.Provides
+import javax.inject.Singleton
 
 @Module
 class RouterModule {
-    @Inject
-    fun providesRouter(fragmentManager: FragmentManager): MainRouter = MainRouter(fragmentManager)
+    @Singleton
+    @Provides
+    fun provideCicerone(): Cicerone<Router> = Cicerone.create()
+
+    @Provides
+    fun provideRouter(cicerone: Cicerone<Router>): Router = cicerone.router
+
+    @Provides
+    fun provideNavigator(cicerone: Cicerone<Router>): NavigatorHolder =
+        cicerone.getNavigatorHolder()
 }
