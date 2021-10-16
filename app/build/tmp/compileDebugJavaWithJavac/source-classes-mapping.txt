@@ -1,0 +1,65 @@
+com/example/mvpproject/di/modules/DataBaseModule_ProvideUserDaoFactory.java
+ com.example.mvpproject.di.modules.DataBaseModule_ProvideUserDaoFactory
+com/example/mvpproject/di/modules/DataBaseModule_ProvideUserDataBaseFactory.java
+ com.example.mvpproject.di.modules.DataBaseModule_ProvideUserDataBaseFactory
+com/example/mvpproject/di/modules/MainActivityModule_ProvideFragmentManagerFactory.java
+ com.example.mvpproject.di.modules.MainActivityModule_ProvideFragmentManagerFactory
+com/example/mvpproject/di/modules/RepositoryModule_ProvideLoginRepositoryFactory.java
+ com.example.mvpproject.di.modules.RepositoryModule_ProvideLoginRepositoryFactory
+com/example/mvpproject/domain/Storage/UserDataBase_Impl.java
+ com.example.mvpproject.domain.Storage.UserDataBase_Impl
+ com.example.mvpproject.domain.Storage.UserDataBase_Impl$1
+com/example/mvpproject/ui/registration/RegistrationContract$View$$State.java
+ com.example.mvpproject.ui.registration.RegistrationContract$View$$State
+ com.example.mvpproject.ui.registration.RegistrationContract$View$$State$CompleteRegistrationCommand
+ com.example.mvpproject.ui.registration.RegistrationContract$View$$State$SetErrorCommand
+com/example/mvpproject/domain/Storage/UserDao_Impl.java
+ com.example.mvpproject.domain.Storage.UserDao_Impl
+ com.example.mvpproject.domain.Storage.UserDao_Impl$1
+ com.example.mvpproject.domain.Storage.UserDao_Impl$2
+ com.example.mvpproject.domain.Storage.UserDao_Impl$3
+ com.example.mvpproject.domain.Storage.UserDao_Impl$4
+com/example/mvpproject/ui/registration/RegistrationPresenter$$ViewStateProvider.java
+ com.example.mvpproject.ui.registration.RegistrationPresenter$$ViewStateProvider
+com/example/mvpproject/BuildConfig.java
+ com.example.mvpproject.BuildConfig
+com/example/mvpproject/databinding/FragmentMainBinding.java
+ com.example.mvpproject.databinding.FragmentMainBinding
+com/example/mvpproject/databinding/FragmentRegistrationBinding.java
+ com.example.mvpproject.databinding.FragmentRegistrationBinding
+com/example/mvpproject/databinding/ActivityMainBinding.java
+ com.example.mvpproject.databinding.ActivityMainBinding
+com/example/mvpproject/di/modules/PresenterModule_ProvideRegistrationPresenterFactory.java
+ com.example.mvpproject.di.modules.PresenterModule_ProvideRegistrationPresenterFactory
+com/example/mvpproject/di/modules/PresenterModule_ProvideLoginPresenterFactory.java
+ com.example.mvpproject.di.modules.PresenterModule_ProvideLoginPresenterFactory
+com/example/mvpproject/ui/login/LoginPresenter$$ViewStateProvider.java
+ com.example.mvpproject.ui.login.LoginPresenter$$ViewStateProvider
+com/example/mvpproject/di/modules/RouterModule_ProvideNavigatorFactory.java
+ com.example.mvpproject.di.modules.RouterModule_ProvideNavigatorFactory
+com/example/mvpproject/di/modules/RouterModule_ProvideRouterFactory.java
+ com.example.mvpproject.di.modules.RouterModule_ProvideRouterFactory
+com/example/mvpproject/ui/registration/RegistrationFragment_MembersInjector.java
+ com.example.mvpproject.ui.registration.RegistrationFragment_MembersInjector
+com/example/mvpproject/di/modules/ApplicationModule_ProvidesApplicationContextFactory.java
+ com.example.mvpproject.di.modules.ApplicationModule_ProvidesApplicationContextFactory
+com/example/mvpproject/ui/login/LoginFragment_MembersInjector.java
+ com.example.mvpproject.ui.login.LoginFragment_MembersInjector
+com/example/mvpproject/ui/MainActivity_MembersInjector.java
+ com.example.mvpproject.ui.MainActivity_MembersInjector
+com/example/mvpproject/ui/login/LoginContract$View$$State.java
+ com.example.mvpproject.ui.login.LoginContract$View$$State
+ com.example.mvpproject.ui.login.LoginContract$View$$State$SetAuthErrorCommand
+ com.example.mvpproject.ui.login.LoginContract$View$$State$SetStateCommand
+com/example/mvpproject/databinding/FragmentLoginBinding.java
+ com.example.mvpproject.databinding.FragmentLoginBinding
+com/example/mvpproject/di/DaggerAppComponent.java
+ com.example.mvpproject.di.DaggerAppComponent
+ com.example.mvpproject.di.DaggerAppComponent$1
+ com.example.mvpproject.di.DaggerAppComponent$Builder
+ com.example.mvpproject.di.DaggerAppComponent$MainSubcomponentFactory
+ com.example.mvpproject.di.DaggerAppComponent$MainSubcomponentImpl
+com/example/mvpproject/di/modules/RouterModule_ProvideCiceroneFactory.java
+ com.example.mvpproject.di.modules.RouterModule_ProvideCiceroneFactory
+com/example/mvpproject/di/modules/ApplicationModule_ProvidesApplicationFactory.java
+ com.example.mvpproject.di.modules.ApplicationModule_ProvidesApplicationFactory

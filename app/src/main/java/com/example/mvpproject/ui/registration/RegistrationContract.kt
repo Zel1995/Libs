@@ -1,16 +1,19 @@
 package com.example.mvpproject.ui.registration
 
 import com.example.mvpproject.domain.User
+import moxy.MvpPresenter
+import moxy.MvpView
+import moxy.viewstate.strategy.alias.Skip
 
 class RegistrationContract {
-    interface View {
+    interface View :MvpView{
+        @Skip
         fun setError()
+        @Skip
         fun completeRegistration(userId:Long)
     }
 
-    interface Presenter {
-        fun onAttach(view: RegistrationContract.View)
-        fun onRegistration(user: User)
-        fun onDetach()
+    abstract class Presenter: MvpPresenter<View>() {
+        abstract fun onRegistration(user: User)
     }
 }
